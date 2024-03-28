@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainContentView: View {
     @State private var isPlaying = false
-    @State private var volume : Double = 0.5
+    @State private var volume : Double = 50.0
     // Placeholder for current track name
     @State private var currentTrack = "Track Name"
     
@@ -40,8 +40,9 @@ struct MainContentView: View {
             .buttonStyle(BorderlessButtonStyle())
             .font(.title)
             
-            Slider(value: $volume, in: 0...1, step: 0.01)
+            Slider(value: $volume, in: 0...100, step: 5.0)
                 .padding()
+                .accentColor(.purple)
                 .onReceive([self.volume].publisher.first()) { (volume) in
                     //Adjust Volume
                 }

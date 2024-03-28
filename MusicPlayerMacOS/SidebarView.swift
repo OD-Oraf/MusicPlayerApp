@@ -19,15 +19,7 @@ struct SidebarView: View {
             }
         }
         .listStyle(SidebarListStyle())
-        .toolbar {
-            // Toggle Sidebar Button
-            ToolbarItem(placement: .navigation) {
-                Button(action: toggleSidebar) {
-                    Image(systemName: "sidebar.left")
-                }
-            }
-        }
-        .frame(minWidth: 200, idealWidth: 250, maxWidth: 300)
+        .frame(minWidth: 20, idealWidth: 50, maxWidth: 100)
     }
     func toggleSidebar() {
         NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)

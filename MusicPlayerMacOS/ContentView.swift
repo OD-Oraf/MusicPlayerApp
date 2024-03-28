@@ -9,16 +9,23 @@ import SwiftUI
 import AVFoundation
 
 struct ContentView: View {
-    @State private var isPlaying = false
-    @State private var volume : Double = 0.5
-    // Placeholder for current track name
-    @State private var currentTrack = "Track Name"
+    @State private var isSideBarVisible: Bool = true
     
     var body: some View {
-        NavigationView {
-            SidebarView()
+        VStack {
+            NavigationSplitView {
+                if isSideBarVisible {
+                    SidebarView()
+                }
+            } detail: {
+                Text( "THis is the main view")
+                
+                
+            }
+            Divider()
             MainContentView()
         }
+        
     }
 }
 
